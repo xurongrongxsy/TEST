@@ -233,6 +233,65 @@ print(fn(n,k,0,d))
 // 第一次训练后，战斗力为1的战士的战斗力全都变成1+1=2，所有战士战斗力分别为2、2、2、3，总和为9。第二次训练后，战斗力为2的战士的战斗力全都变成2+3=5，所有战士战斗力分别为5、5、5、3，总和为18。
 
 
+
+let [num,count] = read_line().trim().split(" ").map(i=>parseInt(i))
+
+let zd = gets(num*4).split(" ").map(i=>parseInt(i))
+
+let zdadd=gets(count*4).split(" ").map(i=>parseInt(i))
+
+
+function fn(zd,num,addnum){
+  zd.sort((a,b)=>a-b)
+  let t = [zd[0]]
+  let sum = 0
+  for(let i = 0;i<num;i++){
+    if(zd[i]>t || zd[i]>=310){
+      break
+    }else{
+      if(zd[i]<=(310-addnum)){
+        zd[i]+=addnum
+      }else{
+        zd[i] = 310
+      }
+    }
+  }
+}
+function sum(arr) {
+  var s = 0;
+  arr.forEach(function(val, idx, arr) {
+    s += val;
+  }, 0);
+  
+  return s;
+};
+
+let a=[]
+for(let i=0;i<count;i++){
+  fn(zd,num,zdadd[i])
+
+  a.push(sum(zd))
+}
+print(a.join(" "))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // 第五题
 // 积木
 // 时间限制： 3000MS
@@ -317,8 +376,38 @@ print(fn(n,k,0,d))
 // 可以选择抽出第2、4、5个积木，剩下的3个积木是1(黑)、2(黑)、3(黑)，符合要求。
 
 // 也可以选择抽出第2、5、6个积木，剩下的3个积木是1(黑)、2(黑)、2(白)，符合要求
-=======
-//agagaagagagagaagg
 
-//呱呱啊
->>>>>>> 2c65266980a81ab6524496241951ea0760c745c8
+
+
+
+
+let count = +read_line().trim()
+
+let h = gets(count*6).split(" ").map(i=>parseInt(i))
+
+let color=gets(count*2).split(" ").map(i=>parseInt(i))
+
+print(aa())
+
+function aa(){
+  let a = fn(h,color)
+  let bcount = a.filter(item=>item.c==0).length
+
+  return (count-a.length+Math.min(bcount,a.length-bcount))
+}
+
+
+function fn (h,c){
+  let t1=[]
+  for(let i =0;i<h.length;i++){
+    if(!t1.find(item=>{
+      return item.h == h[i] && item.c == c[i]
+    })){
+      t1.push({
+        h:h[i],
+        c:c[i]
+      })
+    }
+  }
+  return t1
+}
