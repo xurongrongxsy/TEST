@@ -109,3 +109,4 @@ for(let i=0;i<count;i++){
   a.push(sum(zd))
 }
 print(a.join(" "))
+// 第四题超时
