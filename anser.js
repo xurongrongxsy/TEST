@@ -109,3 +109,41 @@ for(let i=0;i<count;i++){
   a.push(sum(zd))
 }
 print(a.join(" "))
+
+
+
+
+
+
+/****************************            第五题                       ************************************* */
+
+let count = +read_line().trim()
+
+let h = gets(count*6).split(" ").map(i=>parseInt(i))
+
+let color=gets(count*2).split(" ").map(i=>parseInt(i))
+
+print(aa())
+
+function aa(){
+  let a = fn(h,color)
+  let bcount = a.filter(item=>item.c==0).length
+
+  return (count-a.length+Math.min(bcount,a.length-bcount))
+}
+
+
+function fn (h,c){
+  let t1=[]
+  for(let i =0;i<h.length;i++){
+    if(!t1.find(item=>{
+      return item.h == h[i] && item.c == c[i]
+    })){
+      t1.push({
+        h:h[i],
+        c:c[i]
+      })
+    }
+  }
+  return t1
+}
