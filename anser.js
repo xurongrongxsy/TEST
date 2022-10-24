@@ -110,3 +110,51 @@ for(let i=0;i<count;i++){
 }
 print(a.join(" "))
 // 第四题超时
+
+
+
+//第五题呢
+
+
+var __readline = require('readline-sync')
+__readline.setDefaultOptions({prompt: ''})
+var read_line = __readline.prompt
+__readline.prompt
+
+const stdio = require('node-stdio');
+
+
+let printsth = stdio.printsth
+let print = stdio.print
+let gets = stdio.gets
+
+let count = +read_line().trim()
+
+let h = gets(count*6).split(" ").map(i=>parseInt(i))
+
+let color=gets(count*2).split(" ").map(i=>parseInt(i))
+
+print(aa())
+
+function aa(){
+  let a = fn(h,color)
+  let bcount = a.filter(item=>item.c==0).length
+
+  return (count-a.length+Math.min(bcount,a.length-bcount))
+}
+
+
+function fn (h,c){
+  let t1=[]
+  for(let i =0;i<h.length;i++){
+    if(!t1.find(item=>{
+      return item.h == h[i] && item.c == c[i]
+    })){
+      t1.push({
+        h:h[i],
+        c:c[i]
+      })
+    }
+  }
+  return t1
+}
